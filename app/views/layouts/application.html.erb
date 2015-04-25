@@ -7,17 +7,28 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+    <header class="navbar navbar-inverse navbar-static-top">
+      <div class="container">
+        <nav>
+          <div class="navbar-brand text-muted" href="/">
+            Type<strong>Racer</strong>
+          </div>
+          <p class="navbar-text navbar-right">
+            <% if current_user %>
+              Welcome <strong><%= current_user.name %></strong>!
+              <%= link_to "Sign out", signout_path, id: "sign_out" %>
+            <% else %>
+              <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
+            <% end %>
+          </p>
+        </nav>
+      </div>
+    </header>
+    <div class="container">
+      <div id="user-widget">
 
-<div id="user-widget">
-  <% if current_user %>
-    Welcome <strong><%= current_user.name %></strong>!
-    <%= link_to "Sign out", signout_path, id: "sign_out" %>
-  <% else %>
-    <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
-  <% end %>
-</div>
-
-<%= yield %>
-
-</body>
+      </div>
+      <%= yield %>
+    </div>
+  </body>
 </html>
