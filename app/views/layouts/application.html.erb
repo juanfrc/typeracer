@@ -11,7 +11,7 @@
       <div class="container">
         <nav>
           <div class="navbar-brand text-muted" href="/">
-            Type<strong>Racer</strong>
+            Type<span style="color:#A987FF"><strong>Racer</strong></span>
           </div>
           <p class="navbar-text navbar-right">
             <% if current_user %>
@@ -24,10 +24,8 @@
         </nav>
       </div>
     </header>
-    <div class="container">
-      <div id="user-widget">
-
-      </div>
+    <div class="container-fluid">
+     
       <%= yield %>
     </div>
   </body>

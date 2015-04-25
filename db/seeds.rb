@@ -18,8 +18,7 @@ count = 0
 15.times do
   count += 1
   User.create(name: Faker::Name.name)
-  1000.times do
+  25.times do
   	Score.create(score: rand(25..90), user_id: count)
   end
 end
-
