@@ -10,15 +10,19 @@
     <header class="navbar navbar-inverse navbar-static-top">
       <div class="container">
         <nav>
-          <div class="navbar-brand text-muted" href="/">
-            Type<span style="color:#A987FF"><strong>Racer</strong></span>
+          <div class="navbar-brand text-muted">
+            <span style="color:#C9E6FA">Type<strong style="color:#7CBCFB">Racer</strong></span>
           </div>
           <p class="navbar-text navbar-right">
             <% if current_user %>
               Welcome <strong><%= current_user.name %></strong>!
               <%= link_to "Sign out", signout_path, id: "sign_out" %>
-            <%# else %>
-              <%#= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
+
+              <!-- <ul class="nav navbar-nav navbar-right">
+                <li><%= link_to "Home",   '#' %></li>
+                <li><%= link_to "Help",   '#' %></li>
+                <li><%= link_to "Log in", '#' %></li>
+              </ul> -->
             <% end %>
           </p>
         </nav>

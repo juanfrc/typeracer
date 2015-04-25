@@ -37,9 +37,9 @@ $(document).ready(function(){
 			counter = 0;
 			test.val("");
 			// console.log("que se va a cambiar " + edited_quote)
-			$('.quote h3').html(edited_quote)
+			$('.quote h4').html(edited_quote)
 			// edited_quote = edited_quote.split(' ').shift().join(' ');
-			// console.log($('.quote h3').html());
+			// console.log($('.quote h4').html());
 			// console.log(edited_quote);
 		}
 
@@ -59,9 +59,9 @@ $(document).ready(function(){
 			end_time = Date.now()
 			score(quote)
 			$('.quote').after("<button class='restart'>New game?</button>");
-			$('.quote').find('h3').remove(),
-			$('.quote').append("<h3>Time: "+time+" seconds<br>WPM: "+wpm+" </h3>"),
-			// $('.quote').append("<h3>Time: "+time+"<br>WPM: "+wpm+" </h3>")
+			$('.quote').find('h4').remove(),
+			$('.quote').append("<h4>Time: "+time+" seconds<br>WPM: "+wpm+" </h4>"),
+			// $('.quote').append("<h4>Time: "+time+"<br>WPM: "+wpm+" </h4>")
 			$('#typing').remove(),
 			words.push(1);
 		}
@@ -72,7 +72,7 @@ $(document).ready(function(){
 		$('.restart').hide(),
 		$('.quote').remove(),
 		$('#countdown360_countdown').show(),
-		// quote = $('.quote h3').html(),
+		// quote = $('.quote h4').html(),
 		edited_quote = quote,
 		timer(),
 		words = quote.split(" ")
@@ -83,7 +83,7 @@ $(document).ready(function(){
 	var timer = function() {
 		$("#countdown").countdown360({
 	    radius      : 60.5,
-	    seconds     : 5,
+	    seconds     : 1,
 	    strokeWidth : 15,
 	    fillStyle   : '#0276FD',
 	    strokeStyle : '#003F87',
@@ -92,8 +92,8 @@ $(document).ready(function(){
 	    autostart: false,
 	    onComplete  : function () { 
 				$('#countdown360_countdown').hide(),
-	    	$('.square').append("<div class='quote'><h3>"+quote+"</h3></div>"),
-				$('.quote').after("<input type='text' name='typing' id='typing' placeholder='Type your text here' autofocus>"),
+	    	$('.square').append("<div class='quote'><h4>"+quote+"</h4></div>"),
+				$('.quote').after("<input type='text' class='form-control' name='typing' id='typing' placeholder='Type your text here' autofocus>"),
 				$('#typing').focus(),
 				initial_time = Date.now()
 				// highlight(words[0])
