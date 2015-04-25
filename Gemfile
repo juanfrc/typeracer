@@ -35,8 +35,12 @@ gem "puma"
 gem 'omniauth'
 gem 'omniauth-facebook'
 
+<<<<<<< HEAD
 gem 'faker', '~> 1.4.3'
 gem 'awesome_print', '~> 1.6.1'
+=======
+gem 'bootstrap-sass'
+>>>>>>> 583c53529ce444178d19615bf4fccdce53b73e3a
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
