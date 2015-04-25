@@ -3,7 +3,6 @@
 	padding-top: 7px;
 }
 
-
 .marce {
 	background-image: url(image-path("speed-background.jpg"));
 	background-repeat: no-repeat;
@@ -12,4 +11,13 @@
 	margin-top: -45px;
 	margin-left: -15px;
 	margin-right: -15px;
+}
+
+#ghost-btn {
+	background: transparent;
+	color: #F2F2F2;
+	border-radius: 20px;
+	border: 3px solid white;
+	margin-top: 100px;
+	width: 100%;
 }
