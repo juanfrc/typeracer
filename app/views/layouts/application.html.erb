@@ -16,7 +16,22 @@
           <p class="navbar-text navbar-right">
             <% if current_user %>
               Welcome <strong><%= current_user.name %></strong>!
-              <%= link_to "Sign out", signout_path, id: "sign_out" %>
+              <li class="dropdown navbar-right">
+          <a href="#" class="dropdown-toggle navbar-right" data-toggle="dropdown" role="button" aria-expanded="false"><%= image_tag current_user.image, class: "image_bar" %> <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            <li class="divider"></li>
+            <li><a href="#"><%= link_to "Sign out", signout_path, id: "sign_out" %></a></li>
+          </ul>
+        </li>
+
+              
+              <%=  %>
+              
             <%# else %>
               <%#= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
             <% end %>
@@ -25,6 +40,8 @@
       </div>
     </header>
     <div class="container-fluid">
+
+
      
       <%= yield %>
     </div>
