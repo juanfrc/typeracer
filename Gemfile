@@ -35,6 +35,9 @@ gem "puma"
 gem 'omniauth'
 gem 'omniauth-facebook'
 
+gem 'faker', '~> 1.4.3'
+gem 'awesome_print', '~> 1.6.1'
+
 gem 'bootstrap-sass'
 
 group :development, :test do
