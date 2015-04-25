@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   
 
   resources :users
-  resources :scores
+  # resources :scores
+
+
   get 'pages/index'
   root 'pages#index'
 
