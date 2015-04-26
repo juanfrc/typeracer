@@ -1,3 +1,4 @@
+
 <h1>All the Users</h1>
 
 <% @users.each do |user| %>
@@ -33,6 +34,24 @@
 			</div>
 		</div>
 	<% end %>
+=======
+<div class="container">
+	<!-- <div class="col-md-11 col-md-offset-1"> -->
+		<h1>Users</h1>
+		<% @users.each do |user| %>
+			<div class="col-md-4">		
+				<div class="row">
+					<div id="sidebar" class="col-xs-3">
+						<%= image_tag user.image, class: "prof_image" %></li>
+					</div>
+					<div id="content" class="col-xs-9">
+						<strong><%= link_to user.name, user %></strong><br>
+						High Score: <%= user.scores('point DESC').first.point %> WPM
+					</div>
+				</div>
+			</div>		<% end %>
+	<!-- </div> -->
+
 </div>
 <div class="footer">
 <div>
@@ -48,3 +67,4 @@
 	<%# end %>
 <<<<<<< HEAD
  -->
+
