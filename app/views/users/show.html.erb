@@ -6,9 +6,9 @@
 			</div>
 			<div id="content" class="col-xs-10">
 				<h2><%= @user.name %></h2>					
-				<h4> Your Level is: <%= @level %> </h4>
+				<h4> Level: <%= @level %> </h4>
 				<% if @user.liked?(@user) %>
-					<%= link_to "unfollow", users_unfollow_path, method: :post %>
+					<%= link_to "unfollow", users_unfollow_path(params[:id]), method: :post %>
 				<% else %>
 					<%= link_to "follow", users_follow_path(params[:id]), method: :post %>
 				<% end %>
@@ -17,7 +17,7 @@
 		</div>
 		<div class="col-md-12">
 			<div id="sidebar" class="col-xs-4">
-				<h3>Higher scores</h3>
+				<h3>High scores</h3>
 					<% @highscores.each do |score| %>
 					<ol>
 						<hr>
