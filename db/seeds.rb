@@ -19,6 +19,6 @@ count = 0
   count += 1
   User.create(name: Faker::Name.name, image: "http://vignette3.wikia.nocookie.net/smurfs/images/b/bd/Papa_Smurf123.png/revision/latest?cb=20130805130238")
   25.times do
-  	Score.create(score: rand(25..90), user_id: count)
+  	Score.create(point: rand(25..90), user_id: count)
   end
 end
