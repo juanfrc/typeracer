@@ -1,28 +1,56 @@
-<h1>Users</h1>
-
-
-<% if @user.liked?(@user) %>
-
-<%= link_to "unfollow", users_unfollow_path, method: :post %>
-<% else %>
-<%= link_to "follow", users_follow_path(params[:id]), method: :post %>
-
-<% end %>
-
-	<p><%= @user.name %></p>
-	<h2> Your Level is: <%= @level %> </h2>
-	<h1>These are the high scores</h1>
-	<% @highscores.each do |score| %>
-	<p>highscore</p>
-	<p><%= score.point %></p>
-	<p><%= score.created_at.strftime("%d %b. %Y") %></p>
-	<% end %>
-	<h1>These are the last 10 </h1>
-	<% @lastscores.each do |score| %>
-	<p>LastScores</p>
-	<p><%= score.point %></p>
-	<p><%= score.created_at.strftime("%d %b. %Y") %></p>
-	<% end %>
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">		
+			<div id="sidebar" class="col-xs-2">
+				<%= image_tag @user.image, class: "prof_image" %>
+			</div>
+			<div id="content" class="col-xs-10">
+				<h2><%= @user.name %></h2>					
+				<h4> Your Level is: <%= @level %> </h4>
+				<% if @user.liked?(@user) %>
+					<%= link_to "unfollow", users_unfollow_path, method: :post %>
+				<% else %>
+					<%= link_to "follow", users_follow_path(params[:id]), method: :post %>
+				<% end %>
+		<hr>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div id="sidebar" class="col-xs-4">
+				<h3>Higher scores</h3>
+					<% @highscores.each do |score| %>
+					<ol>
+						<hr>
+						<li><strong><%= score.point %></strong> <small>(<%= score.created_at.strftime("%d %b. %Y") %>)</small></li>
+					</ol>
+				<% end %>
+			</div>
+			<div id="sidebar" class="col-xs-4">
+				<h3>Last 10 games </h3>
+				<% @lastscores.each do |score| %>
+					<ol>
+						<hr>
+						<li><strong><%= score.point %></strong> <small>(<%= score.created_at.strftime("%d %b. %Y") %>)</small></li>
+					</ol>
+				<% end %>
+			</div>
+			<div id="sidebar" class="col-xs-4">
+				<h3>Followers</h3>
+				<% @highscores.each do |score| %>
+					<p>highscore</p>
+					<p><%= score.point %></p>
+					<p><%= score.created_at.strftime("%d %b. %Y") %></p>
+				<% end %>
+				<hr>
+				<h3>Following</h3>
+				<% @lastscores.each do |score| %>
+					<p>LastScores</p>
+					<p><%= score.point %></p>
+					<p><%= score.created_at.strftime("%d %b. %Y") %></p>
+				<% end %>
+			</div>
+		</div>
+	</div>
 </div>
-
-
+<!-- <div class="footer">
+<div> -->

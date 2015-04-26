@@ -1,52 +1,32 @@
-<<<<<<< HEAD
-<h1>All the Users</h1>
-
-<% @users.each do |user| %>
-<%= user.name  %>
-<%= link_to user.name, user %>
-
-<% end %>
-<h1> These are top scores </h1>
-<% @top_scores.each do |topscore| %>
-<%= topscore[:user_name] %>
-
-<%= topscore[:point] %>
-<% end %>
-=======
 <div class="container">
-	<!-- <div class="col-md-11 col-md-offset-1"> -->
-		<h1>Users</h1>
-		<% @users.each do |user| %>
-			<div class="col-md-4">		
-				<div class="row">
-					<div id="sidebar" class="col-xs-3">
-						<%= image_tag user.image, class: "prof_image" %></li>
-					</div>
-					<div id="content" class="col-xs-9">
-						<strong><%= link_to user.name, user %></strong><br>
-						<% @top = 0 %>
-						
-						<% @top_scores.each do |topscore| %>
-						<% @score = topscore[:score].to_i %>
+	<h1>Racers</h1>
+	<% @users.each do |user| %>
+		<div class="col-md-4">		
+			<div class="row">
+				<div id="sidebar" class="col-xs-3">
+					<%= image_tag user.image, class: "user_image" %></li>
+				</div>
+				<div id="content" class="col-xs-9">
+					<strong><%= link_to user.name, user %></strong><br>
+					<% @top = 0 %>
+					
+					<% @top_scores.each do |topscore| %>
+					<% @score = topscore[:score].to_i %>
 
-						
-						<% end %>
-						Highest Score: <%= @max_score %> WPM
-					</div>
+					<% end %>
+					Highest Score: <%= @max_score %> WPM
 				</div>
 			</div>
-		<% end %>
-	<!-- </div> -->
+		</div>
+	<% end %>
 </div>
+<div class="footer">
+<div>
 
 <!--
 	<div class="col-md-5 col-md-offset-1">
 	<h1> Top scores </h1>
 	<%# @top_scores.each do |topscore| %>
-	<p><%#= topscore[:user_name] %>: <%#= topscore[:score] %></p>
+	<p><%#= topscore[:user_name] %>: <%#= topscore[:point] %></p>
 	<%# end %>
  -->
-
-
->>>>>>> 388933c35d0e34365cc3b3bf74110a56a6b4fa16
-

@@ -10,7 +10,7 @@
 	height: 500px;
 	margin-top: -45px;
 	margin-left: -15px;
-	margin-right: -15px;
+	margin-right: -15px; 
 }
 
 #ghost-btn {
@@ -118,11 +118,21 @@ canvas {
 }
 
 .prof_image {
+	width: 150px;
+	border-radius: 15%;
+	margin-right: 7px;
+}
+
+.user_image {
 	width: 50px;
 	border-radius: 20%;
 	margin-right: 7px;
 }
-
 li {
 	list-style-type: none;
+}
+.footer {
+	background-color: black;
+	height: 85px;
+	margin: 20px -15px 0 -15px;
 }
