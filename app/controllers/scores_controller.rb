@@ -1,5 +1,6 @@
 class ScoresController < ApplicationController
-  before_filter :require_login
+  before_filter :require_login, except: :create
+  # skip_before_filter  :verify_authenticity_token
 	protect_from_forgery
 	attr_accessor :point, :user_id
 

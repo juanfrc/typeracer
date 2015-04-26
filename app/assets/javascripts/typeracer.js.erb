@@ -130,7 +130,7 @@ $(document).ready(function(){
 		}).success(function(response){
 			// console.log("respuesta exitosa ajax")
 		}).error(function(e){
-			// console.log(e)
+			console.log(e)
 		}).done(function(response){
 			// console.log("respuesta ajax")
 		});
@@ -168,7 +168,7 @@ $(document).ready(function(){
 
 	//random image para terminar el juego	
 	var image_random = function() {
-		console.log("entre image")
+		// console.log("entre image")
 		var images = ["http://www.lemonthemovie.com/albert-einstein-funny-pictures-118.jpg", "http://t2.gstatic.com/images?q=tbn:ANd9GcRulD7utpaosYBodYMTNTWW5TeQC9tOUTpBMGUSGGZ8B982cUWm","http://static.wallpedes.com/thumbnail/images/images-for-gt-einstein-cartoon-funny-funny-cartoon-jokes-videos-pictures-quotes-games-or-die-sms-pics-facebook-status-clips.jpg"];
 		image = images[Math.floor(Math.random()*images.length)];		
 	}
