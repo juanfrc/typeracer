@@ -3,7 +3,7 @@
 	padding-top: 7px;
 }
 
-.marce {
+.content {
 	background-image: url(image-path("speed-background.jpg"));
 	background-repeat: no-repeat;
 	background-size: 100% auto;
@@ -92,6 +92,13 @@
 .image_bar {
 	width: 45px;
 	border-radius: 50%;
+	margin-top: 3px;
+	margin-right: 7px;
+}
+
+.prof_image {
+	width: 50px;
+	border-radius: 20%;
 	margin-top: 3px;
 	margin-right: 7px;
 }

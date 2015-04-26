@@ -1,18 +1,16 @@
-<div class="container">
-	<h1>Users</h1>
+<h1>Users</h1>
 
-	<p><%= @user.name %></p>
-	<h2> Your Level is: <%= @level %> </h2>
-	<h1>These are the high scores</h1>
-	<% @highscores.each do |score| %>
-	<p>highscore</p>
-	<p><%= score.score %></p>
-	<p><%= score.created_at.strftime("%d %b. %Y") %></p>
-	<% end %>
-	<h1>These are the last 10 </h1>
-	<% @lastscores.each do |score| %>
-	<p>LastScores</p>
-	<p><%= score.score %></p>
-	<p><%= score.created_at.strftime("%d %b. %Y") %></p>
-	<% end %>
-</div>
+<p><%= @user.name %></p>
+<h2> Your Level is: <%= @level %> </h2>
+<h1>These are the high scores</h1>
+<% @highscores.each do |score| %>
+<p>highscore</p>
+<p><%= score.score %></p>
+<p><%= score.created_at.strftime("%d %b. %Y") %></p>
+<% end %>
+<h1>These are the last 10 </h1>
+<% @lastscores.each do |score| %>
+<p>LastScores</p>
+<p><%= score.score %></p>
+<p><%= score.created_at.strftime("%d %b. %Y") %></p>
+<% end %>

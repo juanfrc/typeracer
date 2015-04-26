@@ -1,12 +1,17 @@
-<h1>All the Users</h1>
-
-<% @users.each do |user| %>
-<%= user.name  %>
-<%= link_to user.name, user %>
-<% end %>
-<h1> These are top scores </h1>
-<% @top_scores.each do |topscore| %>
-
-<%= topscore[:user_name] %>
-<%= topscore[:score] %>
-<% end %>
+<div class="container">
+	<h1>Users</h1>
+	<div class="col-md-5 col-md-offset-1">
+		<% @users.each do |user| %>
+			<p>
+				<%= image_tag user.image, class: "prof_image" %>
+				<%= link_to user.name, user %>
+			</p>
+		<% end %>
+	</div>
+	<div class="col-md-5 col-md-offset-1">
+		<h1> Top scores </h1>
+		<% @top_scores.each do |topscore| %>
+			<p><%= topscore[:user_name] %>: <%= topscore[:score] %></p>
+		<% end %>
+	</div>
+</div>
