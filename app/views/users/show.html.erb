@@ -15,3 +15,10 @@
 <p><%= score.created_at.strftime("%d %b. %Y") %></p>
 <% end %>
 
+<% if @user.liked?(@user) %>
+
+<%= link_to "unfollow", users_unfollow_path, method: :post %>
+<% else %>
+<%= link_to "follow", users_follow_path(params[:id]), method: :post %>
+
+<% end %>

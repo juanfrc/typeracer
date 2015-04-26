@@ -14,7 +14,7 @@ class UsersController < ApplicationController
   		count += 1
   	end
   	puts "top scoring scores"
-  	puts @top_scores
+
   end
 
   def show
@@ -42,4 +42,24 @@ class UsersController < ApplicationController
   	end
 
   end
+
+  def follow
+    # @user = User.find(params[:id])
+    @object  = User.first
+    current_user.follow(@object)
+    redirect_to 'users/show'
+  end
+
+  def unfollow
+    @user = User.last # User.find(first)
+    puts "This is the first User"
+    puts @user
+    @object = User.find(params[:id])
+    puts "This is the first object"
+    puts @object
+    @user.stop_following(@object)
+    redirect_to 'users/show'
+  end
+
+  
 end

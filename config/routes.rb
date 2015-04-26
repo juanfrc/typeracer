@@ -3,11 +3,17 @@ Rails.application.routes.draw do
   
 
   resources :users
-  # resources :scores
+
+     post 'users/follow'
+     post 'users/unfollow'
+ 
+  
+  
 
 
   get 'pages/index'
   root 'pages#index'
+ 
 
   match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
   match 'auth/failure', to: redirect('/'), via: [:get, :post]

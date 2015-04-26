@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
 	has_many :scores
+  acts_as_followable
+  acts_as_follower
   def self.from_omniauth(auth)
     puts auth
     puts auth.info.image
@@ -15,4 +17,8 @@ class User < ActiveRecord::Base
 
     end
   end
+  def liked?(user)
+    User.last.following?(user)
+  end
+
 end
