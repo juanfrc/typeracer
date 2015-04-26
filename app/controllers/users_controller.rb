@@ -13,6 +13,7 @@ class UsersController < ApplicationController
   		@top_scores[count] = @top_score
   		count += 1
   	end
+    
   	puts "top scoring scores"
   end
 
