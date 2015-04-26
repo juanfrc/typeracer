@@ -88,12 +88,29 @@
 	color: #009900;
 	text-decoration: underline;
 }
+.image-score{
+	position: relative;
+	width: 60%;
+	height: 70%;
+	border-radius: 8px;
+	margin-bottom: 10px;
+	left: 19%;
+}
+
+.show-score {
+	position: relative;
+	margin-left: 19%;
+}
 
 .image_bar {
 	width: 45px;
 	border-radius: 50%;
 	margin-top: 3px;
 	margin-right: 7px;
+}
+canvas {
+	position: relative;
+	left: 33%;
 }
 
 li {
