@@ -40,7 +40,7 @@ gem 'awesome_print', '~> 1.6.1'
 
 gem 'bootstrap-sass'
 
-gem 'gon', '~> 5.2.3'
+# gem 'gon', '~> 5.2.3'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
