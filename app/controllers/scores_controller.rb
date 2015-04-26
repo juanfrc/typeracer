@@ -1,4 +1,5 @@
 class ScoresController < ApplicationController
+  before_filter :require_login
 	protect_from_forgery
 	attr_accessor :point, :user_id
 
@@ -36,6 +37,8 @@ class ScoresController < ApplicationController
   		format.html
   	end
   end
+
+
 
   private
   def score_params
