@@ -35,6 +35,6 @@ count = 0
   count += 1
   User.create(name: Faker::Name.name, image:Faker::Avatar.image)
   25.times do
-  	Score.create(point: rand(25..90), user_id: count)
+  	Score.create(point: rand(1..20), user_id: count)
   end
 end
