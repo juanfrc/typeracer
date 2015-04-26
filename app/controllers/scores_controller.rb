@@ -15,12 +15,20 @@ class ScoresController < ApplicationController
 
   def create
 		@score = Score.new(score_params)
-		# @score.user_id = 10
-		# @score.score = 43
 		@score.save
 		redirect_to root_path	
-		# response = @score
-		# head :no_content
+  end
+
+  def quote
+  	@quotes = Quote.all
+  	@quote = @quotes.sample
+  	@response = @quote.text
+  	puts "*********"
+  	puts response
+  	respond_to do |format|
+  		format.json {render json: @response}
+  		format.html
+  	end
   end
 
   private

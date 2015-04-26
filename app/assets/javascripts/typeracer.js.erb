@@ -1,17 +1,18 @@
 $(document).ready(function(){
 
-	var quote = "is."
+	var quote = ""
 
 		//empezar aplicación
-		$('.start').on("click", function(){
+	$('.start').on("click", function(){
 		$('.start').hide(),
 		$('.square').append("<div id='countdown'></div>"),
 		timer()
+		quote_random()
 	});
 
-	var counter = 0
-	var words = quote.split(" ")
-	edited_quote = quote
+	// var counter = 0
+	// var words = quote.split(" ")
+	// edited_quote = quote
 	// console.log(words)
 
 	//resultado en tiempo y wmp
@@ -28,7 +29,6 @@ $(document).ready(function(){
 	//Funcion para revisar sí la palabra que se ingresa es la correcta
 	$(".square").keyup("#typing", function(e){		
 		var test = $(this).find('#typing');
-
 		//Cuando una palabra es igual
 		if(e.keyCode == 32 && counter == 1){
 			// console.log("borra text")
@@ -75,9 +75,10 @@ $(document).ready(function(){
 		$('.quote').remove(),
 		$('#countdown360_countdown').show(),
 		// quote = $('.quote h3').html(),
-		edited_quote = quote,
-		timer(),
-		words = quote.split(" ")
+		quote_random()
+		// edited_quote = quote,
+		timer()
+		// words = quote.split(" ")
 		// console.log(words)
 	});
 
@@ -110,33 +111,57 @@ $(document).ready(function(){
 		edited_quote = edited_quote.join(" ");
 	}
 
-	//función para haver ajax Call
-
+	//función para haver ajax Call para crear un nuevo escore despues de cada juego
 	var create_score = function() {
- 		console.log("entre a create score");
-		console.log(wpm);
+ 	// 	console.log("entre a create score");
+		// console.log(wpm);
 		var current_user = $("#user_id").data('user');
-		console.log(current_user);
+		// console.log(current_user);
 		data = {score:{user_id: current_user, point: wpm}};
-		console.log(data)
+		// console.log(data)
 		// data = data.serialize()
 		$.ajax ({
 			url: "/scores/create",
 			method: "POST",
 			type: "json",
 			data: data
-      // contentType: 'application/json; charset=utf-8',
-			// dataType: "json",
-   //  	data: {
-   //  		score : 22 }
 		}).success(function(response){
-			console.log("respuesta exitosa ajax")
+			// console.log("respuesta exitosa ajax")
 		}).error(function(e){
-			console.log(e)
+			// console.log(e)
 		}).done(function(response){
-			console.log("respuesta ajax")
+			// console.log("respuesta ajax")
 		});
 	};
+
+	//función para random quote
+	var quote_random = function() {
+		console.log("entre a random")
+		$.ajax ({
+			url: "/scores/quote",
+			method: "GET",
+			dataType: "json",
+			success:function(result){
+				console.log(result)
+			},
+			error:function(result){
+				console.log(result.responseText),
+				quote = result.responseText,
+				counter = 0,
+				words = quote.split(" "),
+				edited_quote = quote
+			}
+		})
+		// .success(function(e){
+		// 	console.log("respuesta exitosa ajax")
+		// 	console.log(e)
+		// }).error(function(e){
+		// 	console.log("respuesta fallida ajax")
+		// 	console.log(e)
+		// }).done(function(response){
+		// 	console.log("termino ajax")
+		// });
+	};	
 
 });
 
