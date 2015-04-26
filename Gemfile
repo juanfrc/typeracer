@@ -40,11 +40,9 @@ gem 'awesome_print', '~> 1.6.1'
 
 gem 'bootstrap-sass'
 
-<<<<<<< HEAD
+
 gem "acts_as_follower"
-=======
-# gem 'gon', '~> 5.2.3'
->>>>>>> 514f728bb20fbdd3b75787eab6dd02dfb0bbc46a
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
