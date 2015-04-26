@@ -1,6 +1,7 @@
 $(document).ready(function(){
 
-	var quote = "Great ambition is. great ambition is."
+	var quote = "Great."
+	//  ambition is. great ambition is
 
 		//empezar aplicación
 		$('.start').on("click", function(){
@@ -58,7 +59,7 @@ $(document).ready(function(){
 			counter = 0;
 			end_time = Date.now()
 			score(quote)
-			$('.quote').after("<button class='restart'>New game?</button>");
+			$('.quote').after("<button class='btn btn-lg btn-primary restart'>New game?</button>");
 			$('.quote').find('h4').remove(),
 			$('.quote').append("<h4>Time: "+time+" seconds<br>WPM: "+wpm+" </h4>"),
 			// $('.quote').append("<h4>Time: "+time+"<br>WPM: "+wpm+" </h4>")
