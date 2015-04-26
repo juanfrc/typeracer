@@ -1,12 +1,24 @@
 <h1>Users</h1>
 
-
+<% if  current_user == @user %>
+ <p> Your Profile </p>
+<% else %>
 <% if @user.liked?(@user) %>
 
-<%= link_to "unfollow", users_unfollow_path, method: :post %>
+<%= link_to "unfollow", users_unfollow_path(params[:id]), method: :post %>
+
 <% else %>
 <%= link_to "follow", users_follow_path(params[:id]), method: :post %>
 
+<% end %>
+<% end %>
+
+Number of Followers: <%= @user.followers_count %> <br>
+Number of people I am following: <%= @user.follow_count %>
+
+<br>User Followers: <br>
+<% @user.user_followers.each do |follower| %>
+<%= link_to follower.name, user_path(follower) %><br>
 <% end %>
 
 	<p><%= @user.name %></p>

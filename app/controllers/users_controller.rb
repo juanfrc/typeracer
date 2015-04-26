@@ -44,20 +44,20 @@ class UsersController < ApplicationController
 
   def follow
     # @user = User.find(params[:id])
-    @object  = User.first
-    current_user.follow(@object)
-    redirect_to 'users/show'
+    #@object  = User.first
+    #@object = User.find(2)
+    current_user.follow(User.find(params[:format]))
+    redirect_to user_path(User.find(params[:format]))
+
   end
 
   def unfollow
-    @user = User.last # User.find(first)
-    puts "This is the first User"
-    puts @user
-    @object = User.find(params[:id])
-    puts "This is the first object"
-    puts @object
-    @user.stop_following(@object)
-    redirect_to 'users/show'
+    puts params 
+    puts "********************"
+    # if  current_user.following?(User.find(params[:format]))
+    current_user.stop_following(User.find(params[:format]))
+    # end
+    redirect_to user_path(User.find(params[:format]))
   end
 
   
