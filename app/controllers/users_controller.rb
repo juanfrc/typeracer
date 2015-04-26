@@ -14,7 +14,7 @@ class UsersController < ApplicationController
   		count += 1
   	end
   	puts "top scoring scores"
-  	puts @top_scores
+  
   end
 
   def show
