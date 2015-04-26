@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+<% if current_user %>
 <h1>All the Users</h1>
 
 <% @users.each do |user| %>
@@ -39,6 +39,13 @@
 	<!-- </div> -->
 </div>
 
+<% else %>
+	<%= render root_path %>
+
+
+<% end %>
+
+
 <!--
 	<div class="col-md-5 col-md-offset-1">
 	<h1> Top scores </h1>
@@ -47,6 +54,4 @@
 	<%# end %>
  -->
 
-
->>>>>>> 388933c35d0e34365cc3b3bf74110a56a6b4fa16
 

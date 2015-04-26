@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_filter :require_login
   def index
   	@users = User.all
   	@top_scores = []
@@ -58,6 +59,15 @@ class UsersController < ApplicationController
     current_user.stop_following(User.find(params[:format]))
     # end
     redirect_to user_path(User.find(params[:format]))
+  end
+
+
+private
+
+  def require_login
+    unless current_user
+      redirect_to root_path
+    end
   end
 
   
