@@ -1,11 +1,17 @@
 class ScoresController < ApplicationController
 	protect_from_forgery
 	attr_accessor :point, :user_id
-  # def index
-  # 	@scores = Score.all
-  # end
+
+  def index
+    @users = User.all 
+    @scores = Score.all
+    @highscores = @scores.order("point DESC").first(10)
+    # @lastscores = @user.scores.order("created_at DESC").first(10)
+  end
 
   # def show
+
+
   # 	@score = Score.find(params[:id])
   # end
 
@@ -23,8 +29,8 @@ class ScoresController < ApplicationController
   	@quotes = Quote.all
   	@quote = @quotes.sample
   	@response = @quote.text
-  	puts "*********"
-  	puts response
+  	# puts "*********"
+  	# puts response
   	respond_to do |format|
   		format.json {render json: @response}
   		format.html

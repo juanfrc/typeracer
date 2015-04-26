@@ -6,13 +6,13 @@
 	<h1>These are the high scores</h1>
 	<% @highscores.each do |score| %>
 	<p>highscore</p>
-	<p><%= score.score %></p>
+	<p><%= score.point %></p>
 	<p><%= score.created_at.strftime("%d %b. %Y") %></p>
 	<% end %>
 	<h1>These are the last 10 </h1>
 	<% @lastscores.each do |score| %>
 	<p>LastScores</p>
-	<p><%= score.score %></p>
+	<p><%= score.point %></p>
 	<p><%= score.created_at.strftime("%d %b. %Y") %></p>
 	<% end %>
 </div>

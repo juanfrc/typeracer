@@ -6,7 +6,6 @@
 <% end %>
 <h1> These are top scores </h1>
 <% @top_scores.each do |topscore| %>
-
 <%= topscore[:user_name] %>
-<%= topscore[:score] %>
+<%= topscore[:point] %>
 <% end %>

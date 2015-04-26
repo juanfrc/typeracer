@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   get 'pages/index'
   root 'pages#index'
+  resources :scores, only: :index
 
   post 'scores/create'
   get 'scores/quote'
