@@ -17,7 +17,7 @@ Quote.create(text:"You know what I've noticed?! Nobody panics when everything go
 count = 0 
 15.times do
   count += 1
-  User.create(name: Faker::Name.name)
+  User.create(name: Faker::Name.name, image: "http://vignette3.wikia.nocookie.net/smurfs/images/b/bd/Papa_Smurf123.png/revision/latest?cb=20130805130238")
   25.times do
   	Score.create(score: rand(25..90), user_id: count)
   end
