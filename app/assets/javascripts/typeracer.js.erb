@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-	var quote = "Great ambition is. great ambition is."
+	var quote = "is."
 
 		//empezar aplicación
 		$('.start').on("click", function(){
@@ -64,6 +64,8 @@ $(document).ready(function(){
 			// $('.quote').append("<h3>Time: "+time+"<br>WPM: "+wpm+" </h3>")
 			$('#typing').remove(),
 			words.push(1);
+			//para hacer llamado ajax
+			create_score()
 		}
 	});
 
@@ -83,7 +85,7 @@ $(document).ready(function(){
 	var timer = function() {
 		$("#countdown").countdown360({
 	    radius      : 60.5,
-	    seconds     : 5,
+	    seconds     : 1,
 	    strokeWidth : 15,
 	    fillStyle   : '#0276FD',
 	    strokeStyle : '#003F87',
@@ -107,6 +109,37 @@ $(document).ready(function(){
 		edited_quote.shift();
 		edited_quote = edited_quote.join(" ");
 	}
+
+	//función para haver ajax Call
+
+	var create_score = function() {
+ 		console.log("entre a create score");
+		console.log(wpm);
+		var current_user = $("#user_id").data('user');
+		console.log(current_user);
+		data = {score:{user_id: current_user, point: wpm}};
+		console.log(data)
+		// data = data.serialize()
+		$.ajax ({
+			url: "/scores/create",
+			method: "POST",
+			type: "json",
+			data: data
+      // contentType: 'application/json; charset=utf-8',
+			// dataType: "json",
+   //  	data: {
+   //  		score : 22 }
+		}).success(function(response){
+			console.log("respuesta exitosa ajax")
+		}).error(function(e){
+			console.log(e)
+		}).done(function(response){
+			console.log("respuesta ajax")
+		});
+	};
+
 });
+
+
 
 
