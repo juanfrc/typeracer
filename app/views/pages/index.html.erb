@@ -14,7 +14,28 @@
 		 </div>
 		 <div class="col-md-4 col-md-offset-1">
 			<div class="info">
-	 			<div class="timer">
+				<h1 class="center">Top scores </h1>
+	 		  <table class="table">
+    			<thead>
+      			<tr>
+			        <th>Name</th>
+			        <th>Score</th>       
+		      	</tr>
+			    </thead>
+			    <tbody class= "tablebody">
+	 			<% @highscores.each do |score| %>
+
+     			 	<tr>
+			        <td><%= @users.find(score[:user_id]).name %></td>
+			        <td><%= score[:point] %></td>
+			        
+			      	</tr>
+			      
+				<% end %>	
+                </tbody>
+              </table>
+				
+				
 	 			</div>
  			</div>
 		 </div>
