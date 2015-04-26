@@ -4,11 +4,11 @@ class UsersController < ApplicationController
   	@top_scores = []
   	count = 0
   	@users.each do |user|
-  		@max_score = user.scores.order("score DESC").first
+  		@max_score = user.scores.order("point DESC").first
   		if @max_score
-  			@max_score = @max_score.score
+  			@max_score = @max_score.point
   		end
-  		@top_score = {"user_name": user.name, "score": @max_score}
+  		@top_score = {"user_name": user.name, "point": @max_score}
   		puts @top_score
   		@top_scores[count] = @top_score
   		count += 1
@@ -19,9 +19,9 @@ class UsersController < ApplicationController
 
   def show
   	@user = User.find(params[:id])
-  	@highscores = @user.scores.order("score DESC").first(10)
+  	@highscores = @user.scores.order("point DESC").first(10)
   	@lastscores = @user.scores.order("created_at DESC").first(10)
-  	@average = @lastscores.collect(&:score).sum.to_f/@lastscores.length if @lastscores.length > 0
+  	@average = @lastscores.collect(&:point).sum.to_f/@lastscores.length if @lastscores.length > 0
   	if @average == nil
   		@level = "go play to make a score"
   	elsif @average < 40  	 	 

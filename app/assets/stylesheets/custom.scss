@@ -36,7 +36,7 @@
 
 .square {
 	height: 350px;
-	background: #E6E6E6;
+	background: rgba(230, 230, 230, 0.8);
 	border-radius: 15px;
 	margin-top: 90px;
 	box-shadow: 3px 6px 15px rgba(0, 0, 0, 0.2);
@@ -54,9 +54,8 @@
 .start {
 	position: relative;
 	top: 130px;
-	left: 120px;
+	width: 100%;
 	height: 48px;
-	width: 190px;
 	border-radius: 20px;
 }
 
@@ -78,10 +77,10 @@
 
 .restart {
 	position: relative;
-	top: 70px;
-	left: 110px;
-	height: 40px;
-	width: 180px;
+	top: 15px;
+	left: 30%;
+	height: 48px;
+	width: 190px;
 	border-radius: 20px;
 }	
 
@@ -89,8 +88,31 @@
 	color: #009900;
 	text-decoration: underline;
 }
+.image-score{
+	position: relative;
+	width: 60%;
+	height: 70%;
+	border-radius: 8px;
+	margin-bottom: 10px;
+	left: 19%;
+}
+
+.show-score {
+	position: relative;
+	margin-left: 19%;
+}
 
 .image_bar {
-	width: 50px;
+	width: 45px;
 	border-radius: 50%;
+	margin-top: 3px;
+	margin-right: 7px;
+}
+canvas {
+	position: relative;
+	left: 33%;
+}
+
+li {
+	list-style-type: none;
 }

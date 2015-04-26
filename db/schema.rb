@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20150426014223) do
+=======
+ActiveRecord::Schema.define(version: 20150426024302) do
+>>>>>>> 514f728bb20fbdd3b75787eab6dd02dfb0bbc46a
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,7 +63,7 @@ ActiveRecord::Schema.define(version: 20150426014223) do
   end
 
   create_table "scores", force: :cascade do |t|
-    t.decimal  "score"
+    t.decimal  "point"
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

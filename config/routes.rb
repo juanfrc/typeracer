@@ -4,8 +4,8 @@ Rails.application.routes.draw do
 
   resources :users
 
-     post 'users/follow'
-     post 'users/unfollow'
+  post 'users/follow'
+  post 'users/unfollow'
  
   
   
@@ -13,7 +13,12 @@ Rails.application.routes.draw do
 
   get 'pages/index'
   root 'pages#index'
- 
+
+  resources :scores, only: :index
+
+  post 'scores/create'
+  get 'scores/quote'
+
 
   match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
   match 'auth/failure', to: redirect('/'), via: [:get, :post]

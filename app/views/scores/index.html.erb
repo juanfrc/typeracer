@@ -1,4 +1,4 @@
-<% @scores.each do |score| %>
-<%= score.name  %>
-<%= link_to score.name, score %>
+<% @highscores.each do |score| %>
+<%= @users.find(score[:user_id]).name %>
+<%= score[:point] %>
 <% end %>

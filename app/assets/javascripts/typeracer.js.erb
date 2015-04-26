@@ -1,17 +1,17 @@
 $(document).ready(function(){
 
-	var quote = "Great ambition is. great ambition is."
+	var quote = ""
 
-		//empezar aplicación
-		$('.start').on("click", function(){
+	$('.start').on("click", function(){
 		$('.start').hide(),
 		$('.square').append("<div id='countdown'></div>"),
 		timer()
+		quote_random()
 	});
 
-	var counter = 0
-	var words = quote.split(" ")
-	edited_quote = quote
+	// var counter = 0
+	// var words = quote.split(" ")
+	// edited_quote = quote
 	// console.log(words)
 
 	//resultado en tiempo y wmp
@@ -28,7 +28,6 @@ $(document).ready(function(){
 	//Funcion para revisar sí la palabra que se ingresa es la correcta
 	$(".square").keyup("#typing", function(e){		
 		var test = $(this).find('#typing');
-
 		//Cuando una palabra es igual
 		if(e.keyCode == 32 && counter == 1){
 			// console.log("borra text")
@@ -58,12 +57,17 @@ $(document).ready(function(){
 			counter = 0;
 			end_time = Date.now()
 			score(quote)
-			$('.quote').after("<button class='restart'>New game?</button>");
+			image_random()
+			$('.quote').after("<button class='btn btn-lg btn-primary restart'>New game?</button>");
 			$('.quote').find('h4').remove(),
-			$('.quote').append("<h4>Time: "+time+" seconds<br>WPM: "+wpm+" </h4>"),
+			$('.quote').append("<img class='image-score' src="+image+">"),
+			$('.quote').append("<h4 class='show-score'>Your time was: "+time+" seconds<br>Score: "+wpm+" words per minute </h4>"),
+
 			// $('.quote').append("<h4>Time: "+time+"<br>WPM: "+wpm+" </h4>")
 			$('#typing').remove(),
 			words.push(1);
+			//para hacer llamado ajax
+			create_score()
 		}
 	});
 
@@ -73,6 +77,7 @@ $(document).ready(function(){
 		$('.quote').remove(),
 		$('#countdown360_countdown').show(),
 		// quote = $('.quote h4').html(),
+		quote_random()
 		edited_quote = quote,
 		timer(),
 		words = quote.split(" ")
@@ -83,7 +88,7 @@ $(document).ready(function(){
 	var timer = function() {
 		$("#countdown").countdown360({
 	    radius      : 60.5,
-	    seconds     : 1,
+	    seconds     : 5,
 	    strokeWidth : 15,
 	    fillStyle   : '#0276FD',
 	    strokeStyle : '#003F87',
@@ -107,6 +112,69 @@ $(document).ready(function(){
 		edited_quote.shift();
 		edited_quote = edited_quote.join(" ");
 	}
+
+	//función para haver ajax Call para crear un nuevo escore despues de cada juego
+	var create_score = function() {
+ 	// 	console.log("entre a create score");
+		// console.log(wpm);
+		var current_user = $("#user_id").data('user');
+		// console.log(current_user);
+		data = {score:{user_id: current_user, point: wpm}};
+		// console.log(data)
+		// data = data.serialize()
+		$.ajax ({
+			url: "/scores/create",
+			method: "POST",
+			type: "json",
+			data: data
+		}).success(function(response){
+			// console.log("respuesta exitosa ajax")
+		}).error(function(e){
+			// console.log(e)
+		}).done(function(response){
+			// console.log("respuesta ajax")
+		});
+	};
+
+	//función para random quote
+	var quote_random = function() {
+		// console.log("entre a random")
+		$.ajax ({
+			url: "/scores/quote",
+			method: "GET",
+			dataType: "json",
+			success:function(result){
+				console.log(result)
+			},
+			error:function(result){
+				console.log(result.responseText),
+				quote = result.responseText,
+				counter = 0,
+				words = quote.split(" "),
+				edited_quote = quote
+			}
+		})
+
+		// .success(function(e){
+		// 	console.log("respuesta exitosa ajax")
+		// 	console.log(e)
+		// }).error(function(e){
+		// 	console.log("respuesta fallida ajax")
+		// 	console.log(e)
+		// }).done(function(response){
+		// 	console.log("termino ajax")
+		// });
+	};
+
+	//random image para terminar el juego	
+	var image_random = function() {
+		console.log("entre image")
+		var images = ["http://www.lemonthemovie.com/albert-einstein-funny-pictures-118.jpg", "http://t2.gstatic.com/images?q=tbn:ANd9GcRulD7utpaosYBodYMTNTWW5TeQC9tOUTpBMGUSGGZ8B982cUWm","http://static.wallpedes.com/thumbnail/images/images-for-gt-einstein-cartoon-funny-funny-cartoon-jokes-videos-pictures-quotes-games-or-die-sms-pics-facebook-status-clips.jpg"];
+		image = images[Math.floor(Math.random()*images.length)];		
+	}
+
 });
+
+
 
 
