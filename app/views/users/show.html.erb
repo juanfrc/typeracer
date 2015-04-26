@@ -6,17 +6,20 @@
 			</div>
 			<div id="content" class="col-xs-10">
 				<h2><%= @user.name %></h2>					
-				<h4> Your Level is: <%= @level %> </h4>
-				<% if @user.liked?(@user) %>
-					<%= link_to "unfollow", users_unfollow_path, method: :post %>
+				<h4>Level: <level><%= @level %></level></h4>
+				<% if current_user == @user %>
 				<% else %>
-					<%= link_to "follow", users_follow_path(params[:id]), method: :post %>
+					<% if @user.liked?(@user) %>
+						<%= link_to "Unfollow", users_unfollow_path, method: :post, class: "btn btn-danger" %>
+					<% else %>
+						<%= link_to "Follow", users_follow_path(params[:id]), method: :post , class: "btn btn-success"%>
+					<% end %>
 				<% end %>
-		<hr>
+			<hr>
 			</div>
 		</div>
 		<div class="col-md-12">
-			<div id="sidebar" class="col-xs-4">
+			<div id="sidebar" class="col-xs-4" id="score_list">
 				<h3>Higher scores</h3>
 					<% @highscores.each do |score| %>
 					<ol>
@@ -36,29 +39,19 @@
 			</div>
 			<div id="sidebar" class="col-xs-4">
 				<h3>Followers</h3>
-				<% @highscores.each do |score| %>
-					<p>highscore</p>
-					<p><%= score.point %></p>
-					<p><%= score.created_at.strftime("%d %b. %Y") %></p>
+				<p>Followed by <strong><%= @user.followers_count %></strong> people:</p>
+				<p>
+				<% @user.user_followers.each do |follower| %>
+					<%= link_to follower.name, user_path(follower) %>
 				<% end %>
+				</p>
 				<hr>
 				<h3>Following</h3>
-				<% @lastscores.each do |score| %>
-					<p>LastScores</p>
-					<p><%= score.point %></p>
-					<p><%= score.created_at.strftime("%d %b. %Y") %></p>
-				<% end %>
+				Following <strong><%= @user.follow_count %></strong> people
 			</div>
 		</div>
 	</div>
 
 
-	Number of Followers: <%= @user.followers_count %> <br>
-Number of people I am following: <%= @user.follow_count %>
-
-<br>User Followers: <br>
-<% @user.user_followers.each do |follower| %>
-<%= link_to follower.name, user_path(follower) %><br>
-<% end %>
 <!-- <div class="footer">
 <div> -->
