@@ -1,7 +1,6 @@
-<div class="container">
-	<h1>Users</h1>
+<h1>Users</h1>
 
-<<<<<<< HEAD
+
 <% if @user.liked?(@user) %>
 
 <%= link_to "unfollow", users_unfollow_path, method: :post %>
@@ -9,7 +8,7 @@
 <%= link_to "follow", users_follow_path(params[:id]), method: :post %>
 
 <% end %>
-=======
+
 	<p><%= @user.name %></p>
 	<h2> Your Level is: <%= @level %> </h2>
 	<h1>These are the high scores</h1>
@@ -25,4 +24,5 @@
 	<p><%= score.created_at.strftime("%d %b. %Y") %></p>
 	<% end %>
 </div>
->>>>>>> 514f728bb20fbdd3b75787eab6dd02dfb0bbc46a
+
+

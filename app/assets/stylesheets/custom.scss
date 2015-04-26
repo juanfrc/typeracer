@@ -3,7 +3,7 @@
 	padding-top: 7px;
 }
 
-.marce {
+.content {
 	background-image: url(image-path("speed-background.jpg"));
 	background-repeat: no-repeat;
 	background-size: 100% auto;
@@ -111,6 +111,16 @@
 canvas {
 	position: relative;
 	left: 33%;
+}
+
+.row { 
+	padding: 25px 0 5px 25px;
+}
+
+.prof_image {
+	width: 50px;
+	border-radius: 20%;
+	margin-right: 7px;
 }
 
 li {
