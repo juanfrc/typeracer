@@ -22,7 +22,9 @@ class UsersController < ApplicationController
   	@highscores = @user.scores.order("score DESC").first(10)
   	@lastscores = @user.scores.order("created_at DESC").first(10)
   	@average = @lastscores.collect(&:score).sum.to_f/@lastscores.length if @lastscores.length > 0
-  	if @average < 40
+  	if @average == nil
+  		@level = "go play to make a score"
+  	elsif @average < 40  	 	 
   		@level = "You should play Mario Kart!"
   	elsif @average < 50
   		@level = "Good on your way!"
@@ -36,7 +38,6 @@ class UsersController < ApplicationController
   		@level = "Want a job as a secretary?"
   	else
   		@level = "Jesus Christ, superstar!"
-
 
   	end
 
