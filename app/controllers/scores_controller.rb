@@ -29,14 +29,13 @@ class ScoresController < ApplicationController
 
   def quote
   	@quotes = Quote.all
-  	@quote = @quotes.sample
-  	@response = @quote.text
-  	# puts "*********"
-  	# puts response
-  	respond_to do |format|
-  		format.json {render json: @response}
-  		format.html
-  	end
+  	@quote_text = @quotes.sample
+  	puts "*********"
+  	# respond_to do |format|
+  	# 	format.json {render json: @response}
+  	# 	format.html
+  	# end
+    render json: @quote_text
   end
 
 

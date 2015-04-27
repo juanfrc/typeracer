@@ -128,7 +128,7 @@ $(document).ready(function(){
 			type: "json",
 			data: data
 		}).success(function(response){
-			// console.log("respuesta exitosa ajax")
+			console.log("respuesta exitosa ajax")
 		}).error(function(e){
 			console.log(e)
 		}).done(function(response){
@@ -138,22 +138,28 @@ $(document).ready(function(){
 
 	//función para random quote
 	var quote_random = function() {
-		// console.log("entre a random")
+		console.log("entre a random")
 		$.ajax ({
+			type: "GET",
 			url: "/scores/quote",
-			method: "GET",
-			dataType: "json",
 			success:function(result){
-				console.log(result)
-			},
-			error:function(result){
-				console.log(result.responseText),
-				quote = result.responseText,
+				console.log("OK")
+				console.log(result.text)
+				quote = result.text,
 				counter = 0,
 				words = quote.split(" "),
 				edited_quote = quote
+			},
+			error:function(result){
+				console.log(result.text)
 			}
 		})
+// .done(function(response){
+		// 	console.log("OK")
+		// }).fail(function(response){
+		// 	console.log(response)
+		// 	console.log("Fails")
+		// })
 
 		// .success(function(e){
 		// 	console.log("respuesta exitosa ajax")
